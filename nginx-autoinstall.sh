@@ -16,7 +16,7 @@ fi
 NGINX_VER=1.11.10
 LIBRESSL_VER=2.5.1
 OPENSSL_VER=1.1.0e
-NPS_VER=1.12.34.2
+NPS_VER=1.11.33.4
 HEADERMOD_VER=0.32
 
 clear
@@ -103,11 +103,11 @@ case $OPTION in
 			unzip v${NPS_VER}-beta.zip &>/dev/null
 			rm v${NPS_VER}-beta.zip
 			cd ngx_pagespeed-${NPS_VER}-beta
-			psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}.tar.gz
+			psol_url=https://dl.google.com/dl/page-speed/psol/${NPS_VER}.tar.gz
 			[ -e scripts/format_binary_url.sh ] && psol_url=$(scripts/format_binary_url.sh PSOL_BINARY_URL)
 			wget ${psol_url} &>/dev/null
 			tar -xzvf $(basename ${psol_url}) &>/dev/null
-			rm ${NPS_VER}-x64.tar.gz
+			rm ${NPS_VER}.tar.gz
 
 			if [ $? -eq 0 ]; then
 			echo -ne "       Downloading ngx_pagespeed      [${CGREEN}OK${CEND}]\r"
